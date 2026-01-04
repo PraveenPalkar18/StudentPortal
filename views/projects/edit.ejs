@@ -1,0 +1,38 @@
+<%- include('../partials/header', { user }) %>
+
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card border-0 shadow-sm">
+      <div class="card-header bg-white border-0">
+        <h5 class="mb-0">Edit Project</h5>
+      </div>
+      <div class="card-body">
+        <form method="POST" action="/projects/<%= project._id %>?_method=PUT">
+          <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input type="text" name="title" class="form-control" value="<%= project.title %>" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Description</label>
+            <textarea name="description" class="form-control" rows="3"><%= project.description %></textarea>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Status</label>
+            <select name="status" class="form-select">
+              <option value="PENDING" <%= project.status === 'PENDING' ? 'selected' : '' %>>Pending</option>
+              <option value="COMPLETED" <%= project.status === 'COMPLETED' ? 'selected' : '' %>>Completed</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Due Date</label>
+            <input type="date" name="dueDate" class="form-control"
+                   value="<%= project.dueDate ? new Date(project.dueDate).toISOString().substring(0,10) : '' %>">
+          </div>
+          <button class="btn btn-primary w-100">Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

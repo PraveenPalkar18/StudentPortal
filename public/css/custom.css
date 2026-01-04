@@ -1,0 +1,12 @@
+/* public/css/custom.css */
+body {
+  background: linear-gradient(135deg, #f3f6ff 0%, #fdfdff 100%);
+}
+
+.card {
+  border-radius: 0.75rem;
+}
+
+.navbar-brand {
+  letter-spacing: 0.03em;
+}

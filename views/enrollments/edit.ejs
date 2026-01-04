@@ -1,0 +1,34 @@
+<%- include('../partials/header', { user }) %>
+
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card border-0 shadow-sm">
+      <div class="card-header bg-white border-0">
+        <h5 class="mb-0">Edit Course</h5>
+      </div>
+      <div class="card-body">
+        <form method="POST" action="/enrollments/<%= enrollment._id %>?_method=PUT">
+          <div class="mb-3">
+            <label class="form-label">Course Name</label>
+            <input type="text" name="courseName" class="form-control" value="<%= enrollment.courseName %>" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Course Code</label>
+            <input type="text" name="courseCode" class="form-control" value="<%= enrollment.courseCode %>" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Semester</label>
+            <input type="text" name="semester" class="form-control" value="<%= enrollment.semester %>">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Marks</label>
+            <input type="number" name="marks" class="form-control" value="<%= enrollment.marks %>" min="0" max="100">
+          </div>
+          <button class="btn btn-primary w-100">Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>
